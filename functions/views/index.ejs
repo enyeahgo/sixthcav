@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="description" content="Affan - PWA Mobile HTML Template">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#0134d4">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!-- Title -->
+  <title><%= title%></title>
+  <!-- Fonts -->
+  <style>
+    @font-face {
+      font-family: Poppins-Regular; src: url('/fonts/Poppins/Poppins-Regular.ttf');
+      font-family: Poppins-Bold; src: url('/fonts/Poppins/Poppins-Bold.ttf');
+    }
+  </style>
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-icons.css">
+  <link rel="stylesheet" href="/css/tiny-slider.css">
+  <link rel="stylesheet" href="/css/baguetteBox.min.css">
+  <link rel="stylesheet" href="/css/rangeslider.css">
+  <link rel="stylesheet" href="/css/vanilla-dataTables.min.css">
+  <link rel="stylesheet" href="/css/apexcharts.css">
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+  <!-- Ion Icons --> 
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+  <body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="spinner-grow text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
+    </div>
+
+    <!-- Internet Connection Status -->
+    <div class="internet-connection-status" id="internetStatus"></div>
+
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-sm-6">
+          <div class="text-center">
+            <h1 style="font-family: Poppins-Bold;"><%= title%></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Script -->
+    <script src="/__/firebase/9.2.0/firebase-app-compat.js"></script>
+    <script src="/__/firebase/9.2.0/firebase-database-compat.js"></script>
+    <script src="/__/firebase/init.js?useEmulator=true"></script>
+    
+    <!-- All JavaScript Files -->
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/slideToggle.min.js"></script>
+    <script src="/js/internet-status.js"></script>
+    <script src="/js/tiny-slider.js"></script>
+    <script src="/js/baguetteBox.min.js"></script>
+    <script src="/js/countdown.js"></script>
+    <script src="/js/rangeslider.min.js"></script>
+    <script src="/js/vanilla-dataTables.min.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
+    <script src="/js/dark-rtl.js"></script>
+    <script src="/js/active.js"></script>
+    <!-- PWA -->
+    <script src="/js/pwa.js"></script>
+  </body>
+</html>
