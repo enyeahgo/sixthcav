@@ -2,9 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('index', {
-    title: 'Sixth Cav'
-  })
+  res.render('cod');
 });
 
 module.exports = router;
