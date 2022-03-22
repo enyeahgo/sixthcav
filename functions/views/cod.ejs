@@ -131,7 +131,7 @@
           <!-- * Slider -->
 
           <!-- Upcoming Games -->
-          <h2 class="mt-2 mb-2" style="font-family: Poppins-Bold;">Upcoming Games</h3>
+          <h3 class="mt-2 mb-2" style="font-family: Poppins-Bold;">Upcoming Games</h3>
           <ul class="list-group" id="upcomingGames">
             <li class="list-group-item d-flex align-items-center justify-content-between">
               <div>
@@ -213,6 +213,7 @@
               </div>
               <div style="min-height: 60px; min-width: 60px; margin-left: 10px; border-radius: 5px;" class="skeleton"></div>
             </li>
+          
           </ul>
           <!-- * Upcoming Games -->
           
@@ -258,14 +259,12 @@
 
   <script type="text/javascript">
     var db = firebase.database();
-    const dateOptions = {
-      timeZone: 'Asia/Manila', day: '2-digit', month: 'short', year: 'numeric',
-      hour: '2-digit', minute: '2-digit' 
-    };
+    const dateOptions = { timeZone: 'Asia/Manila', day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' };
 
     // DB LISTENERS
     db.ref('Games').on('value', snapshot => {
-      let upcomingGames = Object.values(snapshot.val()).filter(a => a.status == 'upcoming');
+      let upcomingGames = Object.values(snapshot.val()).filter(a => a.status == 'Upcoming');
+      let finishedGames = Object.values(snapshot.val()).filter(a => a.status == 'Finished');
       upcomingGames = upcomingGames.sort((a,b) => parseInt(a.unix)-parseInt(b.unix));
       document.getElementById('upcomingGames').innerText = '';
       upcomingGames.forEach(nData => {
@@ -283,7 +282,7 @@
           <br>
           <small style="font-family: Poppins-Bold">${(new Date(nData.unix)).toLocaleDateString('en-PH', dateOptions)}</small>
           <br>
-          <span class="badge rounded-pill bg-success">${moneyfy(nData.pot)}</span>
+          <span class="badge rounded-pill bg-success">${nData.stage}</span>
         </div>
         <div style="min-height: 60px; min-width: 60px; margin-left: 10px; background-image: url('${nData.image}'); background-size: cover; background-position: center; border-radius: 5px;"></div>
       `;
