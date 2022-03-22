@@ -24,7 +24,8 @@
   <link rel="stylesheet" href="/css/baguetteBox.min.css">
   <link rel="stylesheet" href="/css/rangeslider.css">
   <link rel="stylesheet" href="/css/vanilla-dataTables.min.css">
-  <link rel="stylesheet" href="/css/apexcharts.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/sweetalert2/dist/sweetalert2.min.css">
   <!-- Core Stylesheet -->
   <link rel="stylesheet" href="/style.css">
   <!-- Ion Icons --> 
@@ -48,42 +49,317 @@
       <div class="header-content position-relative d-flex align-items-center justify-content-center">
         <!-- Page Title -->
         <div class="page-heading">
-          <h3 class="mb-0" style="font-family: Poppins-Bold; color: white">CODM</h3>
+          <h3 class="mb-0" style="font-family: Poppins-Bold; color: white"><span id="headtitle">CODM</span></h3>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Footer Nav -->
-  <div class="footer-nav-area" id="footerNav">
+  <div class="footer-nav-area">
     <div class="container px-0">
       <div class="footer-nav position-relative footer-style-three shadow-sm">
         <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
-          <li class="active"><a href="page-home.html">
+          <li class="active" id="homebtn" onclick="bottomBtn('home');"><a href="javascript:;">
             <ion-icon name="home-outline" style="font-size: 25px;"></ion-icon>
           </a></li>
-          <li><a href="pages.html">
-            <ion-icon name="list-outline" style="font-size: 25px;"></ion-icon>  
+          <li id="walletbtn" onclick="bottomBtn('wallet');"><a href="javascript:;">
+            <ion-icon name="wallet-outline" style="font-size: 25px;"></ion-icon>
           </a></li>
-          <li><a href="elements.html">
-            <ion-icon name="boat-outline" style="font-size: 25px;"></ion-icon>
-          </a></li>
-          <li><a href="page-chat-users.html">
+          <li id="settingsbtn" onclick="bottomBtn('settings');"><a href="javascript:;">
             <ion-icon name="settings-outline" style="font-size: 25px;"></ion-icon>
           </a></li>
-          <li><a href="settings.html">
-            <ion-icon name="person-outline" style="font-size: 25px;"></ion-icon>
-          </a></li>
         </ul>
-        <!-- # Footer Three Layout End -->
       </div>
     </div>
   </div>
+
+  <div class="page-content-wrapper">
+
+    <!-- HOME -->
+    <div class="container" style="margin-top: 60px;" id="homepanel">
+      <div class="row d-flex justify-content-center">
+        <div class="col-sm-8">
+
+          <!-- Slider -->
+          <div class="tiny-slider-one-wrapper">
+            <div class="tiny-slider-one">
+              <!-- Single Hero Slide -->
+              <div>
+                <div class="single-hero-slide bg-overlay" style="background-image: url('img/bg-img/codmbg-1.webp')">
+                  <div class="h-100 d-flex align-items-center text-center">
+                    <div class="container">
+                      <h3 class="text-white mb-1"><%= title[0]%></h3>
+                      <p class="text-white mb-4"><%= message[0]%></p>
+                      <% if (!isLoggedIn) { %>
+                        <a class="btn btn-creative btn-warning" href="/register">Join Now</a>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Single Hero Slide -->
+              <div>
+                <div class="single-hero-slide bg-overlay" style="background-image: url('img/bg-img/codmbg-2.webp')">
+                  <div class="h-100 d-flex align-items-center text-center">
+                    <div class="container">
+                      <h3 class="text-white mb-1"><%= title[1]%></h3>
+                      <p class="text-white mb-4"><%= message[1]%></p>
+                      <% if (!isLoggedIn) { %>
+                        <a class="btn btn-creative btn-warning" href="/register">Join Now</a>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Single Hero Slide -->
+              <div> 
+                <div class="single-hero-slide bg-overlay" style="background-image: url('img/bg-img/codmbg-3.jpg')">
+                  <div class="h-100 d-flex align-items-center text-center">
+                    <div class="container">
+                      <h3 class="text-white mb-1"><%= title[2]%></h3>
+                      <p class="text-white mb-4"><%= message[2]%></p>
+                      <% if (!isLoggedIn) { %>
+                        <a class="btn btn-creative btn-warning" href="/register">Join Now</a>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- * Slider -->
+
+          <!-- Upcoming Games -->
+          <h2 class="mt-2 mb-2" style="font-family: Poppins-Bold;">Upcoming Games</h3>
+          <ul class="list-group" id="upcomingGames">
+            <li class="list-group-item d-flex align-items-center justify-content-between">
+              <div>
+                <span style="font-family: Poppins-Bold" class="skeleton">This is the title of this news item This is the title of this news item</span>
+                <br>
+                <span class="skeleton">This is the source</span>
+              </div>
+              <div style="min-height: 60px; min-width: 60px; margin-left: 10px; border-radius: 5px;" class="skeleton"></div>
+            </li>
+            <li class="list-group-item d-flex align-items-center justify-content-between">
+              <div>
+                <span style="font-family: Poppins-Bold" class="skeleton">This is the title of this news item This is the title of this news item</span>
+                <br>
+                <span class="skeleton">This is the source</span>
+              </div>
+              <div style="min-height: 60px; min-width: 60px; margin-left: 10px; border-radius: 5px;" class="skeleton"></div>
+            </li>
+            <li class="list-group-item d-flex align-items-center justify-content-between">
+              <div>
+                <span style="font-family: Poppins-Bold" class="skeleton">This is the title of this news item This is the title of this news item</span>
+                <br>
+                <span class="skeleton">This is the source</span>
+              </div>
+              <div style="min-height: 60px; min-width: 60px; margin-left: 10px; border-radius: 5px;" class="skeleton"></div>
+            </li>
+            <li class="list-group-item d-flex align-items-center justify-content-between">
+              <div>
+                <span style="font-family: Poppins-Bold" class="skeleton">This is the title of this news item This is the title of this news item</span>
+                <br>
+                <span class="skeleton">This is the source</span>
+              </div>
+              <div style="min-height: 60px; min-width: 60px; margin-left: 10px; border-radius: 5px;" class="skeleton"></div>
+            </li>
+            <li class="list-group-item d-flex align-items-center justify-content-between">
+              <div>
+                <span style="font-family: Poppins-Bold" class="skeleton">This is the title of this news item This is the title of this news item</span>
+                <br>
+                <span class="skeleton">This is the source</span>
+              </div>
+              <div style="min-height: 60px; min-width: 60px; margin-left: 10px; border-radius: 5px;" class="skeleton"></div>
+            </li>
+            <li class="list-group-item d-flex align-items-center justify-content-between">
+              <div>
+                <span style="font-family: Poppins-Bold" class="skeleton">This is the title of this news item This is the title of this news item</span>
+                <br>
+                <span class="skeleton">This is the source</span>
+              </div>
+              <div style="min-height: 60px; min-width: 60px; margin-left: 10px; border-radius: 5px;" class="skeleton"></div>
+            </li>
+            <li class="list-group-item d-flex align-items-center justify-content-between">
+              <div>
+                <span style="font-family: Poppins-Bold" class="skeleton">This is the title of this news item This is the title of this news item</span>
+                <br>
+                <span class="skeleton">This is the source</span>
+              </div>
+              <div style="min-height: 60px; min-width: 60px; margin-left: 10px; border-radius: 5px;" class="skeleton"></div>
+            </li>
+            <li class="list-group-item d-flex align-items-center justify-content-between">
+              <div>
+                <span style="font-family: Poppins-Bold" class="skeleton">This is the title of this news item This is the title of this news item</span>
+                <br>
+                <span class="skeleton">This is the source</span>
+              </div>
+              <div style="min-height: 60px; min-width: 60px; margin-left: 10px; border-radius: 5px;" class="skeleton"></div>
+            </li>
+            <li class="list-group-item d-flex align-items-center justify-content-between">
+              <div>
+                <span style="font-family: Poppins-Bold" class="skeleton">This is the title of this news item This is the title of this news item</span>
+                <br>
+                <span class="skeleton">This is the source</span>
+              </div>
+              <div style="min-height: 60px; min-width: 60px; margin-left: 10px; border-radius: 5px;" class="skeleton"></div>
+            </li>
+            <li class="list-group-item d-flex align-items-center justify-content-between">
+              <div>
+                <span style="font-family: Poppins-Bold" class="skeleton">This is the title of this news item This is the title of this news item</span>
+                <br>
+                <span class="skeleton">This is the source</span>
+              </div>
+              <div style="min-height: 60px; min-width: 60px; margin-left: 10px; border-radius: 5px;" class="skeleton"></div>
+            </li>
+          </ul>
+          <!-- * Upcoming Games -->
+          
+        </div>
+      </div>
+    </div>
+    <!-- * HOME -->
+
+    <!-- WALLET -->
+    <div class="container" style="margin-top: 60px; display: none;" id="walletpanel">
+      <div class="row d-flex justify-content-center">
+        <div class="col-sm-8">
+          <div class="card">
+            <div class="card-header">WALLET</div>
+            <div class="card-body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- * WALLET -->
+
+    <!-- SETTINGS -->
+    <div class="container" style="margin-top: 60px; display: none;" id="settingspanel">
+      <div class="row d-flex justify-content-center">
+        <div class="col-sm-8">
+          <div class="card">
+            <div class="card-header">SETTINGS</div>
+            <div class="card-body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- * SETTINGS -->
+
+  </div>
+
 
   <!-- Script -->
   <script src="/__/firebase/9.2.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/9.2.0/firebase-database-compat.js"></script>
   <script src="/__/firebase/init.js?useEmulator=true"></script>
+  <script src="/sweetalert2/dist/sweetalert2.min.js"></script>
+
+  <script type="text/javascript">
+    var db = firebase.database();
+    const dateOptions = {
+      timeZone: 'Asia/Manila', day: '2-digit', month: 'short', year: 'numeric',
+      hour: '2-digit', minute: '2-digit' 
+    };
+
+    // DB LISTENERS
+    db.ref('Games').on('value', snapshot => {
+      let upcomingGames = Object.values(snapshot.val()).filter(a => a.status == 'upcoming');
+      upcomingGames = upcomingGames.sort((a,b) => parseInt(a.unix)-parseInt(b.unix));
+      document.getElementById('upcomingGames').innerText = '';
+      upcomingGames.forEach(nData => {
+        insertUpcomingGames(nData);
+      });
+    });
+
+    function insertUpcomingGames(nData) {
+      let li = document.createElement('li');
+      li.setAttribute('class', 'list-group-item d-flex align-items-center justify-content-between');
+      li.setAttribute('onclick', `showGame('${JSON.stringify(nData)}')`);
+      li.innerHTML = `
+        <div>
+          <span style="font-family: Poppins-Bold">${nData.type} • ${nData.condition}</span>
+          <br>
+          <small style="font-family: Poppins-Bold">${(new Date(nData.unix)).toLocaleDateString('en-PH', dateOptions)}</small>
+          <br>
+          <span class="badge rounded-pill bg-success">${moneyfy(nData.pot)}</span>
+        </div>
+        <div style="min-height: 60px; min-width: 60px; margin-left: 10px; background-image: url('${nData.image}'); background-size: cover; background-position: center; border-radius: 5px;"></div>
+      `;
+      document.getElementById('upcomingGames').appendChild(li);
+    }
+
+    function showGame(nData) {
+      let gameData = JSON.parse(nData);
+      Swal.fire({
+        html: `
+          <p>${gameData.type} • ${gameData.condition}</p>
+          <p>Game Date: ${(new Date(gameData.unix)).toLocaleDateString('en-PH', dateOptions)}</p>
+        `,
+        allowOutsideClick: false
+      });
+    }
+
+    function bottomBtn(active) {
+      switch(active) {
+        case 'home': {
+          document.getElementById('headtitle').innerText = 'CODM';
+          document.getElementById('homepanel').style.display = 'block';
+          document.getElementById('walletpanel').style.display = 'none';
+          document.getElementById('settingspanel').style.display = 'none';
+          document.getElementById('homebtn').setAttribute('class', 'active');
+          document.getElementById('walletbtn').removeAttribute('class');
+          document.getElementById('settingsbtn').removeAttribute('class');
+          break;
+        }
+        case 'wallet': {
+          document.getElementById('headtitle').innerText = 'WALLET';
+          document.getElementById('walletpanel').style.display = 'block';
+          document.getElementById('homepanel').style.display = 'none';
+          document.getElementById('settingspanel').style.display = 'none';
+          document.getElementById('walletbtn').setAttribute('class', 'active');
+          document.getElementById('homebtn').removeAttribute('class');
+          document.getElementById('settingsbtn').removeAttribute('class');
+          break;
+        }
+        case 'settings': {
+          document.getElementById('headtitle').innerText = 'SETTINGS';
+          document.getElementById('settingspanel').style.display = 'block';
+          document.getElementById('homepanel').style.display = 'none';
+          document.getElementById('walletpanel').style.display = 'none';
+          document.getElementById('settingsbtn').setAttribute('class', 'active');
+          document.getElementById('homebtn').removeAttribute('class');
+          document.getElementById('walletbtn').removeAttribute('class');
+          break;
+        }
+        default: {
+          document.getElementById('headtitle').innerText = 'CODM';
+          document.getElementById('homepanel').style.display = 'block';
+          document.getElementById('walletpanel').style.display = 'none';
+          document.getElementById('settingspanel').style.display = 'none';
+          document.getElementById('homebtn').setAttribute('class', 'active');
+          document.getElementById('walletbtn').removeAttribute('class');
+          document.getElementById('settingsbtn').removeAttribute('class');
+          break;
+        }
+      }
+    }
+  
+    function moneyfy(x) {
+      return `₱${x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+    }
+
+    function showAlert(message, type) {
+      Swal.fire({
+        title: type.toUpperCase(),
+        text: message,
+        icon: type,
+        allowOutsideClick: false
+      });
+    }
+
+  </script>
   
   <!-- All JavaScript Files -->
   <script src="/js/bootstrap.bundle.min.js"></script>
