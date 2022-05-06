@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <!-- Title -->
-  <title><%= title%></title>
+  <title>6CAVCOY DASHBOARD</title>
   <!-- Fonts -->
   <style>
     @font-face {
@@ -48,7 +48,7 @@
         <div class="header-content position-relative d-flex align-items-center justify-content-center">
           <!-- Page Title -->
           <div class="page-heading">
-            <h3 class="mb-0" style="font-family: Poppins-Bold; color: white">6CAVCOY</h3>
+            <h3 class="mb-0" style="font-family: Poppins-Bold; color: white" id="headerTitle">6CAVCOY</h3>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
 
     <div class="container">
       <div class="row d-flex justify-content-center">
-        <div class="col-sm-6" style="height: 100vh; background-color: aqua;">
+        <div class="col-sm-6 mb-2" style="background-color: aqua;">
           <div class="text-center">
             <h1 style="font-family: Poppins-Bold;"><%= title%></h1>
             <h1 style="font-family: Poppins-Bold;"><%= title%></h1>
@@ -68,11 +68,7 @@
             <h1 style="font-family: Poppins-Bold;"><%= title%></h1>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row d-flex justify-content-center">
-        <div class="col-sm-6" style="height: 100vh; background-color: bisque;">
+        <div class="col-sm-6" style="background-color: bisque;">
           <div class="text-center">
             <h1 style="font-family: Poppins-Bold;"><%= title%></h1>
             <h1 style="font-family: Poppins-Bold;"><%= title%></h1>
@@ -92,23 +88,32 @@
       <div class="container px-0">
         <div class="footer-nav position-relative footer-style-three shadow-sm">
           <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
-            <li class="active"><a href="page-home.html">
-              <ion-icon name="home-outline" style="font-size: 25px;"></ion-icon>
-            </a></li>
-            <li><a href="pages.html">
-              <ion-icon name="list-outline" style="font-size: 25px;"></ion-icon>  
-            </a></li>
-            <li><a href="elements.html">
-              <ion-icon name="boat-outline" style="font-size: 25px;"></ion-icon>
-            </a></li>
-            <li><a href="page-chat-users.html">
-              <ion-icon name="settings-outline" style="font-size: 25px;"></ion-icon>
-            </a></li>
-            <li><a href="settings.html">
-              <ion-icon name="person-outline" style="font-size: 25px;"></ion-icon>
-            </a></li>
+            <li class="active" id="homeBtn">
+              <a href="javascript:;">
+                <ion-icon name="home-outline" style="font-size: 25px;"></ion-icon>
+              </a>
+            </li>
+            <li id="compliancesBtn">
+              <a href="javascript:;">
+                <ion-icon name="list-outline" style="font-size: 25px;"></ion-icon>
+              </a>
+            </li>
+            <li id="leavesBtn">
+              <a href="javascript:;">
+                <ion-icon name="boat-outline" style="font-size: 25px;"></ion-icon>
+              </a>
+            </li>
+            <li id="pmcsBtn">
+              <a href="javascript:;">
+                <ion-icon name="settings-outline" style="font-size: 25px;"></ion-icon>
+              </a>
+            </li>
+            <li id="profileBtn">
+              <a href="javascript:;">
+                <ion-icon name="person-outline" style="font-size: 25px;"></ion-icon>
+              </a>
+            </li>
           </ul>
-          <!-- # Footer Three Layout End -->
         </div>
       </div>
     </div>
@@ -117,6 +122,59 @@
     <script src="/__/firebase/9.2.0/firebase-app-compat.js"></script>
     <script src="/__/firebase/9.2.0/firebase-database-compat.js"></script>
     <script src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <script type="text/javascript">
+      document.getElementById('homeBtn').addEventListener('click', () => {
+        document.getElementById('headerTitle').innerText = '6CAVCOY';
+        document.getElementById('homeBtn').setAttribute('class', 'active');
+        document.getElementById('compliancesBtn').removeAttribute('class');
+        document.getElementById('leavesBtn').removeAttribute('class');
+        document.getElementById('pmcsBtn').removeAttribute('class');
+        document.getElementById('profileBtn').removeAttribute('class');
+      });
+      
+      document.getElementById('homeBtn').addEventListener('click', () => {
+        document.getElementById('headerTitle').innerText = '6CAVCOY';
+        document.getElementById('homeBtn').setAttribute('class', 'active');
+        document.getElementById('compliancesBtn').removeAttribute('class');
+        document.getElementById('leavesBtn').removeAttribute('class');
+        document.getElementById('pmcsBtn').removeAttribute('class');
+        document.getElementById('profileBtn').removeAttribute('class');
+      });
+      document.getElementById('compliancesBtn').addEventListener('click', () => {
+        document.getElementById('headerTitle').innerText = 'COMPLIANCES';
+        document.getElementById('compliancesBtn').setAttribute('class', 'active');
+        document.getElementById('homeBtn').removeAttribute('class');
+        document.getElementById('leavesBtn').removeAttribute('class');
+        document.getElementById('pmcsBtn').removeAttribute('class');
+        document.getElementById('profileBtn').removeAttribute('class');
+      });
+      document.getElementById('leavesBtn').addEventListener('click', () => {
+        document.getElementById('headerTitle').innerText = 'LEAVES';
+        document.getElementById('leavesBtn').setAttribute('class', 'active');
+        document.getElementById('homeBtn').removeAttribute('class');
+        document.getElementById('compliancesBtn').removeAttribute('class');
+        document.getElementById('pmcsBtn').removeAttribute('class');
+        document.getElementById('profileBtn').removeAttribute('class');
+      });
+      document.getElementById('pmcsBtn').addEventListener('click', () => {
+        document.getElementById('headerTitle').innerText = 'PMCS';
+        document.getElementById('pmcsBtn').setAttribute('class', 'active');
+        document.getElementById('homeBtn').removeAttribute('class');
+        document.getElementById('compliancesBtn').removeAttribute('class');
+        document.getElementById('leavesBtn').removeAttribute('class');
+        document.getElementById('profileBtn').removeAttribute('class');
+      });
+      document.getElementById('profileBtn').addEventListener('click', () => {
+        document.getElementById('headerTitle').innerText = 'PROFILE';
+        document.getElementById('profileBtn').setAttribute('class', 'active');
+        document.getElementById('homeBtn').removeAttribute('class');
+        document.getElementById('compliancesBtn').removeAttribute('class');
+        document.getElementById('leavesBtn').removeAttribute('class');
+        document.getElementById('pmcsBtn').removeAttribute('class');
+      });
+
+    </script>
     
     <!-- All JavaScript Files -->
     <script src="/js/bootstrap.bundle.min.js"></script>
